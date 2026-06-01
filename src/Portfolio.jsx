@@ -143,7 +143,7 @@ export default function Portfolio() {
               <TimelineItem 
                 year="May 3, 2003" 
                 title="Hello World (Literally)" 
-                desc="Born as the first child to a first-generation immigrant household—my dad is from Mexico and my mom is from the States. As a second-generation American, I like to think this early blend of cultures gave me a head start on understanding different perspectives (and gave me a great sense of humor). I am human, after all!"
+                desc="Born as the first child to a first-generation immigrant household—my dad is from Mexico and my mom is from the States. As a second-generation American, I like to think this early blend of cultures gave me a head start on understanding different perspectives (and gave me a great sense of humor)."
                 icon={<Coffee className="w-5 h-5" />}
                 images={[{ src: '/images/kid.jpg', position: 'center 20%' }]}
                 onImageClick={setSelectedImage}
@@ -152,13 +152,13 @@ export default function Portfolio() {
               <TimelineItem 
                 year="2006" 
                 title="The Spark" 
-                desc="Interest in computers began early at age 3. Playing video games and messing around with early PCs ignited a lifelong passion for interactive systems."
+                desc="Interest in computers began early at age 3. Receiving a Nintendo DS Lite for my 3rd birthday, along with playing video games and messing around with early PCs, ignited a lifelong passion for interactive systems."
                 icon={<Gamepad2 className="w-5 h-5" />}
                 onImageClick={setSelectedImage}
               />
 
               <TimelineItem 
-                year="2014 - 2017" 
+                year="2008 - 2017" 
                 title="Foundations" 
                 desc={`From Kindergarten through 8th grade, I was part of a dual language program where instruction was split between English and Spanish. In middle school, our curriculum was uniquely designed so that some semesters we would learn subjects like math in Spanish and history in English, and then swap. 
 
