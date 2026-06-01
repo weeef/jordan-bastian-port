@@ -259,8 +259,8 @@ export default function Portfolio() {
               </p>
             </div>
             
-            <div className="flex flex-col lg:flex-row gap-8 max-w-6xl mx-auto items-start">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 flex-1">
+            <div className="flex flex-col lg:flex-row gap-8 max-w-6xl mx-auto lg:items-stretch">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 flex-1">
                 <HobbyCard 
                   icon={<Bot className="w-6 h-6 text-indigo-600" />} 
                   title="Local LLMs & AI" 
@@ -280,12 +280,6 @@ export default function Portfolio() {
                   color="bg-emerald-50" 
                 />
                 <HobbyCard 
-                  icon={<Car className="w-6 h-6 text-rose-600" />} 
-                  title="Automotive" 
-                  desc="Proud owner of a Ford Focus ST. I love the balance of performance and engineering." 
-                  color="bg-rose-50" 
-                />
-                <HobbyCard 
                   icon={<Activity className="w-6 h-6 text-amber-600" />} 
                   title="Pickleball" 
                   desc="Applying high-speed strategy and reflexes on the court with friends." 
@@ -297,42 +291,74 @@ export default function Portfolio() {
                   desc="Endlessly curious about computer hardware and seeing how components synergize." 
                   color="bg-violet-50" 
                 />
+                <HobbyCard 
+                  icon={<Car className="w-6 h-6 text-rose-600" />} 
+                  title="Automotive" 
+                  desc="Passionate about engineering and performance. I love the raw connection of a manual gearbox, even if my left leg regrets it in heavy traffic." 
+                  color="bg-rose-50" 
+                />
               </div>
 
-              <div className="lg:w-80 w-full flex-shrink-0 bg-white rounded-2xl p-8 border border-slate-200 shadow-sm flex flex-col">
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="bg-rose-50 p-2.5 rounded-xl text-rose-600">
-                    <Heart className="w-6 h-6" />
+              <div className="lg:w-80 w-full flex-shrink-0 flex flex-col gap-6">
+                <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm flex flex-col flex-1">
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="bg-rose-50 p-2.5 rounded-xl text-rose-600">
+                      <Heart className="w-6 h-6" />
+                    </div>
+                    <h4 className="font-bold text-slate-900 text-lg">Furry Friends</h4>
                   </div>
-                  <h4 className="font-bold text-slate-900 text-lg">Furry Friends</h4>
+                  
+                  <div className="grid grid-cols-2 gap-4 mb-6">
+                    <div className="aspect-square rounded-2xl overflow-hidden shadow-sm group relative border border-slate-100">
+                      <img 
+                        src="/images/cookie.jpg" 
+                        alt="Cookie the Chihuahua" 
+                        loading="lazy"
+                        className="w-full h-full object-cover cursor-pointer hover:scale-110 transition-transform duration-500"
+                        onClick={() => setSelectedImage('/images/cookie.jpg')}
+                      />
+                    </div>
+                    <div className="aspect-square rounded-2xl overflow-hidden shadow-sm group relative border border-slate-100">
+                      <img 
+                        src="/images/waffles.jpg" 
+                        alt="Waffles the Blue Heeler mix" 
+                        loading="lazy"
+                        className="w-full h-full object-cover cursor-pointer hover:scale-110 transition-transform duration-500"
+                        onClick={() => setSelectedImage('/images/waffles.jpg')}
+                      />
+                    </div>
+                  </div>
+                  
+                  <p className="text-slate-600 leading-relaxed text-sm">
+                    Back home in Washington, I have two dogs: <span className="font-semibold text-slate-800">Cookie</span>, a Chihuahua, and <span className="font-semibold text-slate-800">Waffles</span>, a Blue Heeler mix.
+                  </p>
                 </div>
-                
-                <div className="grid grid-cols-2 gap-4 mb-6">
-                  <div className="aspect-square rounded-2xl overflow-hidden shadow-sm group relative border border-slate-100">
+
+                <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm flex flex-col flex-1">
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="bg-rose-50 p-2.5 rounded-xl text-rose-600">
+                      <Car className="w-6 h-6" />
+                    </div>
+                    <h4 className="font-bold text-slate-900 text-lg">Performance Daily</h4>
+                  </div>
+                  
+                  <div className="aspect-video rounded-2xl overflow-hidden shadow-sm group relative border border-slate-100 mb-6 flex-1">
                     <img 
-                      src="/images/cookie.jpg" 
-                      alt="Cookie" 
+                      src="/images/car.jpg" 
+                      alt="Ford Focus ST" 
+                      loading="lazy"
                       className="w-full h-full object-cover cursor-pointer hover:scale-110 transition-transform duration-500"
-                      onClick={() => setSelectedImage('/images/cookie.jpg')}
+                      onClick={() => setSelectedImage('/images/car.jpg')}
                     />
                   </div>
-                  <div className="aspect-square rounded-2xl overflow-hidden shadow-sm group relative border border-slate-100">
-                    <img 
-                      src="/images/waffles.jpg" 
-                      alt="Waffles" 
-                      className="w-full h-full object-cover cursor-pointer hover:scale-110 transition-transform duration-500"
-                      onClick={() => setSelectedImage('/images/waffles.jpg')}
-                    />
-                  </div>
+                  
+                  <p className="text-slate-600 leading-relaxed text-sm">
+                    I'm a firm believer that your daily driver should have character. My <span className="font-semibold text-slate-800">Ford Focus ST</span> is the perfect blend of utility and boost—though rowing through gears in stop-and-go traffic is definitely a test of patience.
+                  </p>
                 </div>
-                
-                <p className="text-slate-600 leading-relaxed text-sm">
-                  Back home in Washington, I have two dogs: <span className="font-semibold text-slate-800">Cookie</span>, a Chihuahua, and <span className="font-semibold text-slate-800">Waffles</span>, a Blue Heeler mix.
-                </p>
               </div>
             </div>
           </div>
-
         </div>
       </section>
 
@@ -387,7 +413,7 @@ export default function Portfolio() {
               
               <div className="mt-auto bg-slate-50 rounded-xl p-4 flex items-center gap-4 border border-slate-100">
                 <div className="w-16 h-16 bg-white rounded-lg border border-slate-200 overflow-hidden flex-shrink-0 flex items-center justify-center shadow-sm">
-                  <img src="/images/melda.jpg" alt="Melda Main Character" className="max-w-full max-h-full object-contain cursor-pointer hover:scale-110 transition-transform" onClick={() => setSelectedImage('/images/melda.jpg')} />
+                  <img src="/images/melda.jpg" alt="Melda Main Character" loading="lazy" className="max-w-full max-h-full object-contain cursor-pointer hover:scale-110 transition-transform" onClick={() => setSelectedImage('/images/melda.jpg')} />
                 </div>
                 <div className="text-sm text-slate-500">
                   <span className="font-semibold text-slate-700 block">Featured Asset</span>
@@ -398,7 +424,7 @@ export default function Portfolio() {
 
             <div className="bg-white rounded-2xl p-0 border border-slate-200 shadow-sm hover:shadow-xl transition-shadow overflow-hidden group flex flex-col">
               <div className="h-48 overflow-hidden bg-slate-100 relative cursor-pointer" onClick={() => setSelectedImage('/images/tail.jpg')}>
-                <img src="/images/tail.jpg" alt="Variation in Tail to Body Ratio Poster" className="w-full h-full object-cover object-top opacity-90 group-hover:opacity-100 transition-opacity" />
+                <img src="/images/tail.jpg" alt="Variation in Tail to Body Ratio Poster" loading="lazy" className="w-full h-full object-cover object-top opacity-90 group-hover:opacity-100 transition-opacity" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
                    <h3 className="text-xl font-bold text-white">Canidae Tail Variation</h3>
                 </div>
@@ -419,7 +445,7 @@ export default function Portfolio() {
 
             <div className="bg-white rounded-2xl p-0 border border-slate-200 shadow-sm hover:shadow-xl transition-shadow overflow-hidden group flex flex-col">
               <div className="h-48 overflow-hidden bg-slate-100 relative cursor-pointer" onClick={() => setSelectedImage('/images/trust.jpg')}>
-                <img src="/images/trust.jpg" alt="Trust in Autonomous Vehicles Poster" className="w-full h-full object-cover object-top opacity-90 group-hover:opacity-100 transition-opacity" />
+                <img src="/images/trust.jpg" alt="Trust in Autonomous Vehicles Poster" loading="lazy" className="w-full h-full object-cover object-top opacity-90 group-hover:opacity-100 transition-opacity" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
                    <h3 className="text-xl font-bold text-white">Trust in Autonomous Vehicles</h3>
                 </div>
@@ -487,7 +513,7 @@ export default function Portfolio() {
             <div className="bg-slate-50 rounded-2xl p-8 border border-slate-200 flex flex-col h-full hover:shadow-lg transition-shadow group">
               <div className="flex items-center gap-4 mb-6">
                 <div className="bg-white p-2 rounded-xl shadow-sm border border-slate-100 flex-shrink-0 w-14 h-14 flex items-center justify-center overflow-hidden">
-                  <img src="/images/micro.png" alt="Microsoft Logo" className="max-w-full max-h-full object-contain" />
+                  <img src="/images/micro.png" alt="Microsoft Logo" loading="lazy" className="max-w-full max-h-full object-contain" />
                 </div>
                 <div>
                   <h3 className="font-bold text-slate-900 leading-tight">Career Essentials in Project Management</h3>
@@ -522,7 +548,7 @@ export default function Portfolio() {
             <div className="bg-slate-50 rounded-2xl p-8 border border-slate-200 flex flex-col h-full hover:shadow-lg transition-shadow group">
               <div className="flex items-center gap-4 mb-6">
                 <div className="bg-white p-2 rounded-xl shadow-sm border border-slate-100 flex-shrink-0 w-14 h-14 flex items-center justify-center overflow-hidden">
-                  <img src="/images/ibm.png" alt="IBM Logo" className="max-w-full max-h-full object-contain" />
+                  <img src="/images/ibm.png" alt="IBM Logo" loading="lazy" className="max-w-full max-h-full object-contain" />
                 </div>
                 <div>
                   <h3 className="font-bold text-slate-900 leading-tight">Project Management Foundations</h3>
@@ -767,6 +793,7 @@ function TimelineItem({ year, title, desc, icon, images, subs, onImageClick, ext
                       <img 
                         src={imgSrc} 
                         alt={`${title} visual`} 
+                        loading="lazy"
                         className={`absolute inset-0 w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-300`} 
                         style={{ objectPosition: position }}
                       />
@@ -808,6 +835,7 @@ function TimelineItem({ year, title, desc, icon, images, subs, onImageClick, ext
                             <img 
                               src={imgSrc} 
                               alt={`${sub.title} visual`} 
+                              loading="lazy"
                               className={`absolute inset-0 w-full h-full object-cover group-hover/subimg:scale-105 transition-transform duration-300`}
                               style={{ objectPosition: position }}
                             />
