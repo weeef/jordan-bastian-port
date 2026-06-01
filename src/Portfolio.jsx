@@ -198,6 +198,19 @@ export default function Portfolio() {
                 icon={<BrainCircuit className="w-5 h-5" />}
                 images={['/images/petal programming.jpg']}
                 onImageClick={setSelectedImage}
+                extra={
+                  <div className="mt-6 flex flex-col sm:flex-row items-center gap-4 bg-emerald-50/50 border border-emerald-100 p-4 rounded-xl">
+                    <div className="bg-white p-2.5 rounded-lg shadow-sm border border-emerald-50 flex-shrink-0">
+                      <Medal className="w-6 h-6 text-emerald-600" />
+                    </div>
+                    <div className="text-sm">
+                      <span className="font-bold text-emerald-900 block mb-0.5">2nd Place: Petal Programming Competition</span>
+                      <p className="text-emerald-700 leading-relaxed">
+                        I took home 2nd place in a "Petal Programming" competition during a school-hosted Linux Ladies event! I built a digital flower entirely out of HTML and CSS, and walked away with a real succulent as my prize. It was a fun way to blend creative frontend engineering with rapid prototyping.
+                      </p>
+                    </div>
+                  </div>
+                }
                 subs={[
                   {
                     year: "May 2024 - Sep 2024",
@@ -691,7 +704,7 @@ function HobbyCard({ icon, title, desc, color }) {
 }
 
 // Master Timeline Item (supports nested sub-items)
-function TimelineItem({ year, title, desc, icon, images, subs, onImageClick }) {
+function TimelineItem({ year, title, desc, icon, images, subs, onImageClick, extra }) {
   return (
     <div className="relative pl-14 md:pl-20">
       {/* Icon Node */}
@@ -705,25 +718,30 @@ function TimelineItem({ year, title, desc, icon, images, subs, onImageClick }) {
         <h3 className="text-xl font-bold text-slate-900 mb-2">{title}</h3>
         <p className="text-slate-600 text-sm md:text-base leading-relaxed whitespace-pre-line">{desc}</p>
 
-        {/* Render Main Images if any */}
-        {images && images.length > 0 && (
-          <div className="mt-4 flex flex-wrap gap-4">
-            {images.map((img, idx) => {
-              const imgSrc = typeof img === 'string' ? img : img.src;
-              const position = typeof img === 'object' ? img.position : 'center';
-              return (
-                <div key={idx} className="rounded-xl overflow-hidden border border-slate-200 shadow-sm bg-slate-50 relative aspect-video flex-1 min-w-[200px] max-w-[300px] cursor-pointer group/img" onClick={() => onImageClick && onImageClick(imgSrc)}>
-                  <img 
-                    src={imgSrc} 
-                    alt={`${title} visual`} 
-                    className={`absolute inset-0 w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-300`} 
-                    style={{ objectPosition: position }}
-                  />
-                </div>
-              );
-            })}
+        {/* Render Main Images and Extra Content */}
+        {(images && images.length > 0) || extra ? (
+          <div className="mt-4 flex flex-col md:flex-row gap-6">
+            {images && images.length > 0 && (
+              <div className="flex flex-wrap gap-4 flex-1">
+                {images.map((img, idx) => {
+                  const imgSrc = typeof img === 'string' ? img : img.src;
+                  const position = typeof img === 'object' ? img.position : 'center';
+                  return (
+                    <div key={idx} className="rounded-xl overflow-hidden border border-slate-200 shadow-sm bg-slate-50 relative aspect-video flex-1 min-w-[200px] max-w-[300px] cursor-pointer group/img" onClick={() => onImageClick && onImageClick(imgSrc)}>
+                      <img 
+                        src={imgSrc} 
+                        alt={`${title} visual`} 
+                        className={`absolute inset-0 w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-300`} 
+                        style={{ objectPosition: position }}
+                      />
+                    </div>
+                  );
+                })}
+              </div>
+            )}
+            {extra && <div className="flex-1">{extra}</div>}
           </div>
-        )}
+        ) : null}
         </div>
 
         {/* Render Nested Sub-Events */}
@@ -762,6 +780,9 @@ function TimelineItem({ year, title, desc, icon, images, subs, onImageClick }) {
                       })}
                     </div>
                   )}
+
+                  {/* Render Extra Content if any */}
+                  {sub.extra && sub.extra}
               </div>
             </div>
           ))}
