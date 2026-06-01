@@ -24,7 +24,8 @@ import {
   Home,
   Medal,
   Award,
-  ShieldCheck
+  ShieldCheck,
+  Heart
 } from 'lucide-react';
 
 const Github = ({ className }) => (
@@ -258,43 +259,77 @@ export default function Portfolio() {
               </p>
             </div>
             
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-              <HobbyCard 
-                icon={<Bot className="w-6 h-6 text-indigo-600" />} 
-                title="Local LLMs & AI" 
-                desc="I love downloading, hosting, and tinkering with the newest local Large Language Models right on my computer." 
-                color="bg-indigo-50" 
-              />
-              <HobbyCard 
-                icon={<Box className="w-6 h-6 text-sky-600" />} 
-                title="3D Printing" 
-                desc="Bringing digital concepts into the physical world through 3D printing, tinkering, and rapid prototyping." 
-                color="bg-sky-50" 
-              />
-              <HobbyCard 
-                icon={<Dumbbell className="w-6 h-6 text-emerald-600" />} 
-                title="Fitness" 
-                desc="An avid gym-goer. Keeping my body active is essential for keeping my mind sharp for complex problem-solving." 
-                color="bg-emerald-50" 
-              />
-              <HobbyCard 
-                icon={<Car className="w-6 h-6 text-rose-600" />} 
-                title="Automotive Enthusiast" 
-                desc="A dedicated car guy. I love learning about the engineering, mechanics, and beautiful design behind vehicles." 
-                color="bg-rose-50" 
-              />
-              <HobbyCard 
-                icon={<Activity className="w-6 h-6 text-amber-600" />} 
-                title="Pickleball" 
-                desc="Always down for a game of pickleball. It's the perfect mix of strategy, reflexes, and friendly competition." 
-                color="bg-amber-50" 
-              />
-              <HobbyCard 
-                icon={<Cpu className="w-6 h-6 text-violet-600" />} 
-                title="Emerging Tech" 
-                desc="Endlessly curious. I spend my free time reading up on and experimenting with the latest technological advancements." 
-                color="bg-violet-50" 
-              />
+            <div className="flex flex-col lg:flex-row gap-8 max-w-6xl mx-auto items-start">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 flex-1">
+                <HobbyCard 
+                  icon={<Bot className="w-6 h-6 text-indigo-600" />} 
+                  title="Local LLMs & AI" 
+                  desc="Utilizing LM Studio to host and explore the capabilities of various open-source models." 
+                  color="bg-indigo-50" 
+                />
+                <HobbyCard 
+                  icon={<Box className="w-6 h-6 text-sky-600" />} 
+                  title="3D Printing" 
+                  desc="Designing and printing custom functional parts and rapid prototypes." 
+                  color="bg-sky-50" 
+                />
+                <HobbyCard 
+                  icon={<Dumbbell className="w-6 h-6 text-emerald-600" />} 
+                  title="Fitness" 
+                  desc="An avid gym-goer. I find that consistent physical discipline is essential for a balanced life." 
+                  color="bg-emerald-50" 
+                />
+                <HobbyCard 
+                  icon={<Car className="w-6 h-6 text-rose-600" />} 
+                  title="Automotive" 
+                  desc="Proud owner of a Ford Focus ST. I love the balance of performance and engineering." 
+                  color="bg-rose-50" 
+                />
+                <HobbyCard 
+                  icon={<Activity className="w-6 h-6 text-amber-600" />} 
+                  title="Pickleball" 
+                  desc="Applying high-speed strategy and reflexes on the court with friends." 
+                  color="bg-amber-50" 
+                />
+                <HobbyCard 
+                  icon={<Cpu className="w-6 h-6 text-violet-600" />} 
+                  title="Hardware" 
+                  desc="Endlessly curious about computer hardware and seeing how components synergize." 
+                  color="bg-violet-50" 
+                />
+              </div>
+
+              <div className="lg:w-80 w-full flex-shrink-0 bg-white rounded-2xl p-8 border border-slate-200 shadow-sm flex flex-col">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="bg-rose-50 p-2.5 rounded-xl text-rose-600">
+                    <Heart className="w-6 h-6" />
+                  </div>
+                  <h4 className="font-bold text-slate-900 text-lg">Furry Friends</h4>
+                </div>
+                
+                <div className="grid grid-cols-2 gap-4 mb-6">
+                  <div className="aspect-square rounded-2xl overflow-hidden shadow-sm group relative border border-slate-100">
+                    <img 
+                      src="/images/cookie.jpg" 
+                      alt="Cookie" 
+                      className="w-full h-full object-cover cursor-pointer hover:scale-110 transition-transform duration-500"
+                      onClick={() => setSelectedImage('/images/cookie.jpg')}
+                    />
+                  </div>
+                  <div className="aspect-square rounded-2xl overflow-hidden shadow-sm group relative border border-slate-100">
+                    <img 
+                      src="/images/waffles.jpg" 
+                      alt="Waffles" 
+                      className="w-full h-full object-cover cursor-pointer hover:scale-110 transition-transform duration-500"
+                      onClick={() => setSelectedImage('/images/waffles.jpg')}
+                    />
+                  </div>
+                </div>
+                
+                <p className="text-slate-600 leading-relaxed text-sm">
+                  Back home in Washington, I have two dogs: <span className="font-semibold text-slate-800">Cookie</span>, a Chihuahua, and <span className="font-semibold text-slate-800">Waffles</span>, a Blue Heeler mix.
+                </p>
+              </div>
             </div>
           </div>
 
