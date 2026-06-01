@@ -59,6 +59,7 @@ export default function Portfolio() {
           <div className="hidden md:flex space-x-8 text-sm font-medium text-slate-600">
             <button onClick={() => scrollToSection('about')} className="hover:text-indigo-600 transition-colors">About & Journey</button>
             <button onClick={() => scrollToSection('projects')} className="hover:text-indigo-600 transition-colors">Featured Work</button>
+            <button onClick={() => scrollToSection('hobbies')} className="hover:text-indigo-600 transition-colors">Beyond the Screen</button>
             <button onClick={() => scrollToSection('contact')} className="hover:text-indigo-600 transition-colors">Contact</button>
           </div>
         </div>
@@ -249,7 +250,7 @@ export default function Portfolio() {
             </div>
           </div>
 
-          <div className="mt-24 border-t border-slate-100 pt-16">
+          <div id="hobbies" className="mt-24 border-t border-slate-100 pt-16">
             <div className="text-center mb-10">
               <h3 className="text-2xl font-bold text-slate-900 mb-4">Beyond the Screen</h3>
               <p className="text-slate-600 max-w-2xl mx-auto">
