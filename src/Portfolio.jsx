@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { 
   Globe, 
   Mail, 
@@ -9,7 +9,6 @@ import {
   BookOpen, 
   FileText,
   ChevronRight,
-  Database,
   BrainCircuit,
   Download,
   Dumbbell,
@@ -19,11 +18,9 @@ import {
   Box,
   Activity,
   Briefcase,
-  Link,
   MapPin,
   Home,
   Medal,
-  Award,
   ShieldCheck,
   Heart
 } from 'lucide-react';
@@ -43,12 +40,19 @@ const Linkedin = ({ className }) => (
 export default function Portfolio() {
   const [selectedDoc, setSelectedDoc] = useState(null);
   const [selectedImage, setSelectedImage] = useState(null);
+  const [copied, setCopied] = useState(false);
 
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
+  };
+
+  const copyEmail = () => {
+    navigator.clipboard.writeText('bastianjordan056@gmail.com');
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
   };
 
   return (
@@ -59,8 +63,8 @@ export default function Portfolio() {
           <span className="font-bold text-xl tracking-tight text-indigo-900">JB.</span>
           <div className="hidden md:flex space-x-8 text-sm font-medium text-slate-600">
             <button onClick={() => scrollToSection('about')} className="hover:text-indigo-600 transition-colors">About & Journey</button>
-            <button onClick={() => scrollToSection('projects')} className="hover:text-indigo-600 transition-colors">Featured Work</button>
             <button onClick={() => scrollToSection('hobbies')} className="hover:text-indigo-600 transition-colors">Beyond the Screen</button>
+            <button onClick={() => scrollToSection('projects')} className="hover:text-indigo-600 transition-colors">Featured Work</button>
             <button onClick={() => scrollToSection('contact')} className="hover:text-indigo-600 transition-colors">Contact</button>
           </div>
         </div>
@@ -671,9 +675,18 @@ export default function Portfolio() {
                 <a href="https://www.linkedin.com/in/bastian-jordan" target="_blank" rel="noreferrer" className="bg-slate-800 p-4 rounded-xl hover:bg-indigo-600 transition-colors border border-slate-700">
                   <Linkedin className="w-6 h-6" />
                 </a>
-                <a href="mailto:bastianjordan056@gmail.com" className="bg-slate-800 p-4 rounded-xl hover:bg-emerald-600 transition-colors border border-slate-700">
+                <button 
+                  onClick={copyEmail} 
+                  className="bg-slate-800 p-4 rounded-xl hover:bg-emerald-600 transition-colors border border-slate-700 relative group"
+                  aria-label="Copy email address"
+                >
                   <Mail className="w-6 h-6" />
-                </a>
+                  {copied && (
+                    <span className="absolute -top-12 left-1/2 -translate-x-1/2 bg-emerald-600 text-white text-xs py-1 px-3 rounded-lg shadow-xl animate-bounce whitespace-nowrap">
+                      Copied!
+                    </span>
+                  )}
+                </button>
               </div>
             </div>
           </div>
