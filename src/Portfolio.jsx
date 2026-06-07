@@ -372,6 +372,59 @@ export default function Portfolio() {
             </div>
           </div>
 
+          {/* OptiPep Featured Project */}
+          <div className="bg-white rounded-3xl p-8 md:p-12 border border-slate-200 shadow-sm hover:shadow-xl transition-shadow group mb-12 overflow-hidden">
+            <div className="flex flex-col lg:flex-row gap-12 items-center">
+              <div className="flex-1 space-y-6">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 text-indigo-600 text-xs font-bold uppercase tracking-wider">
+                  <Activity className="w-4 h-4" /> Current Project
+                </div>
+                <h3 className="text-3xl md:text-4xl font-bold text-slate-900 group-hover:text-indigo-600 transition-colors">OptiPep</h3>
+                <p className="text-lg text-slate-600 leading-relaxed">
+                  The ultimate companion for personal health management. OptiPep provides a centralized hub to track medications, injections, peptides, and supplements, empowering users to take control of their wellness journey.
+                </p>
+                <div className="space-y-4">
+                  <div className="flex items-start gap-3">
+                    <div className="mt-1 bg-emerald-50 p-1 rounded-md">
+                      <ShieldCheck className="w-4 h-4 text-emerald-600" />
+                    </div>
+                    <p className="text-slate-600 text-base">Integrates seamlessly with <span className="font-semibold text-slate-900">Google Health</span> and <span className="font-semibold text-slate-900">Apple Health</span> for a unified view of your vitals.</p>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="mt-1 bg-violet-50 p-1 rounded-md">
+                      <BrainCircuit className="w-4 h-4 text-violet-600" />
+                    </div>
+                    <p className="text-slate-600 text-base"><span className="font-semibold text-slate-900">AI-Powered Assistant</span> designed to help optimize your medication and supplement stacks with personalized insights.</p>
+                  </div>
+                </div>
+                <div className="flex flex-wrap gap-2 pt-4">
+                  <span className="text-xs font-semibold bg-slate-100 text-slate-600 px-3 py-1 rounded-full">TypeScript</span>
+                  <span className="text-xs font-semibold bg-slate-100 text-slate-600 px-3 py-1 rounded-full">Expo / React Native</span>
+                  <span className="text-xs font-semibold bg-slate-100 text-slate-600 px-3 py-1 rounded-full">Expo Router</span>
+                  <span className="text-xs font-semibold bg-slate-100 text-slate-600 px-3 py-1 rounded-full">NativeWind (Tailwind)</span>
+                  <span className="text-xs font-semibold bg-slate-100 text-slate-600 px-3 py-1 rounded-full">Zustand</span>
+                  <span className="text-xs font-semibold bg-slate-100 text-slate-600 px-3 py-1 rounded-full">HealthKit / Fit</span>
+                  <span className="text-xs font-semibold bg-slate-100 text-slate-600 px-3 py-1 rounded-full">LLM / AI</span>
+                </div>
+              </div>
+              <div className="flex-1 w-full max-w-sm mx-auto lg:max-w-none flex justify-center">
+                <div className="relative rounded-3xl overflow-hidden shadow-2xl border-8 border-slate-900 bg-slate-900 aspect-[9/19.5] max-h-[600px]">
+                  <video 
+                    className="w-full h-full object-contain"
+                    autoPlay 
+                    muted 
+                    loop 
+                    playsInline
+                  >
+                    <source src="/images/video for site.mov" type="video/quicktime" />
+                    <source src="/images/video for site.mov" type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             
             <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm hover:shadow-xl transition-shadow group flex flex-col">
