@@ -651,7 +651,7 @@ export default function Portfolio() {
             <div className="space-y-4">
               <p className="text-slate-500 font-medium text-sm uppercase tracking-wider">Open to Relocation & Remote Roles</p>
               <div className="flex flex-wrap justify-center lg:justify-start gap-3">
-                {['California', 'Washington', 'Idaho', 'Oregon', 'New York', 'Boston', 'Minnesota'].map((loc) => (
+                {['California', 'Washington', 'Idaho', 'Colorado', 'Oregon', 'New York', 'Boston', 'Minnesota'].map((loc) => (
                   <span key={loc} className="px-3 py-1 bg-slate-800/50 border border-slate-700 rounded-full text-xs text-slate-300">
                     {loc}
                   </span>
