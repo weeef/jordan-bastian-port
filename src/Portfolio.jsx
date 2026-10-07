@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { 
   Globe, 
   Mail, 
@@ -22,7 +22,8 @@ import {
   Home,
   Medal,
   ShieldCheck,
-  Heart
+  Heart,
+  Smartphone
 } from 'lucide-react';
 
 const Github = ({ className }) => (
@@ -36,6 +37,32 @@ const Linkedin = ({ className }) => (
     <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" /><rect x="2" y="9" width="4" height="12" /><circle cx="4" cy="4" r="2" />
   </svg>
 );
+
+// Shows a page at a fixed desktop size (width x height), scaled down to fit the available width.
+const ScaledFrame = ({ src, title, width, height }) => {
+  const [scale, setScale] = useState(1);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return undefined;
+    const observer = new ResizeObserver(([entry]) => setScale(Math.min(1, entry.contentRect.width / width)));
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [width]);
+
+  return (
+    <div ref={ref} className="relative w-full overflow-hidden bg-[#0e0e0c]" style={{ height: height * scale }}>
+      <iframe
+        src={src}
+        title={title}
+        loading="lazy"
+        className="absolute top-0 left-0 border-0 origin-top-left"
+        style={{ width, height, transform: `scale(${scale})` }}
+      />
+    </div>
+  );
+};
 
 export default function Portfolio() {
   const [selectedDoc, setSelectedDoc] = useState(null);
@@ -82,7 +109,7 @@ export default function Portfolio() {
             </p>
             <div className="flex flex-wrap gap-4 pt-4">
               <a 
-                href="00001.jordan.bastian.resume.pdf" 
+                href="/jordan-bastian-resume.pdf" 
                 download="Jordan_Bastian_Resume.pdf"
                 className="bg-indigo-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-indigo-700 transition-all flex items-center shadow-lg shadow-indigo-600/20"
               >
@@ -221,7 +248,7 @@ export default function Portfolio() {
                   {
                     year: "May 2024 - Sep 2024",
                     title: "Frontend Developer Intern @ GBCS Group",
-                    desc: "Collaborated with 5+ developers across 3 Agile projects. Spearheaded front-end development using React.js and TypeScript, coordinated API testing with Postman, and leveraged GitHub CI/CD to maintain delivery quality. Most importantly, I served as acting project lead, streamlining task delegation, resolving technical blockers, and providing progress reports to leadership—achieving 100% deadline adherence."
+                    desc: "I ended up acting as project lead for a team of 4-6 developers. I took what the business needed and turned it into development tasks the team could pick up and run with, then kept the work lined up with what our stakeholders were actually asking for. On the hands-on side, I built front-end features in TypeScript and tested our APIs with Postman. We usually had several projects going at once, so a lot of my time went into coordinating handoffs between engineering and QA: making sure everything got tested for bugs, the team kept its pace, and what we shipped held up."
                   },
                   {
                     year: "Aug 2024 - May 2025",
@@ -247,7 +274,9 @@ export default function Portfolio() {
               <TimelineItem 
                 year="Nov 2025 - Present" 
                 title="Associate, Program Operations @ Element Fleet Management" 
-                desc="Currently own and coordinate 5+ concurrent operational workstreams. I manage multiple databases and report key findings to corresponding stakeholders to ensure data integrity and transparency. I partner cross-functionally with analysts, vendors, and internal stakeholders to ensure 100% on-time delivery against SLA targets. This role has drastically sharpened my ability to drive stakeholder alignment, proactively escalate risks, and implement data-driven process improvements utilizing Smartsheet, Excel, and Power BI."
+                desc={`I joined Element in November 2025, and most days I'm juggling five or more operational and technical workstreams at once, working with vendors, data analysts, and engineers to keep them all moving. So far, everything I've owned has landed on time.
+
+                I manage two of our vendors directly. That means keeping a close eye on how each one is performing and shifting work between them when things change. When something keeps slowing us down, I dig into the data to find out why. The SQL and Power BI dashboards I built to track those bottlenecks have helped the team get about 20% more work through. I also supported the Armada program, and I jump in on Salesforce cases when they need a hand.`}
                 icon={<Briefcase className="w-5 h-5" />}
                 onImageClick={setSelectedImage}
               />
@@ -255,113 +284,108 @@ export default function Portfolio() {
             </div>
           </div>
 
-          <div id="hobbies" className="mt-24 border-t border-slate-100 pt-16">
-            <div className="text-center mb-10">
-              <h3 className="text-2xl font-bold text-slate-900 mb-4">Beyond the Screen</h3>
-              <p className="text-slate-600 max-w-2xl mx-auto">
-                I believe the best leaders and product managers are well-rounded humans. Here are a few things that keep me active and grounded.
+        </div>
+
+        <div id="hobbies" className="max-w-6xl mx-auto px-6 mt-24 border-t border-slate-100 pt-16">
+          <div className="text-center mb-12">
+            <h3 className="text-2xl font-bold text-slate-900 mb-4">Beyond the Screen</h3>
+            <p className="text-slate-600 max-w-2xl mx-auto">
+              I believe the best leaders and product managers are well-rounded humans. Here are a few things that keep me active and grounded.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm flex flex-col">
+              <div className="grid grid-cols-2 gap-3 mb-6">
+                <div className="h-56 rounded-xl overflow-hidden border border-slate-100">
+                  <img 
+                    src="/images/cookie.jpg" 
+                    alt="Cookie the Chihuahua" 
+                    loading="lazy"
+                    className="w-full h-full object-cover cursor-pointer hover:scale-110 transition-transform duration-500"
+                    onClick={() => setSelectedImage('/images/cookie.jpg')}
+                  />
+                </div>
+                <div className="h-56 rounded-xl overflow-hidden border border-slate-100">
+                  <img 
+                    src="/images/waffles.jpg" 
+                    alt="Waffles the Blue Heeler mix" 
+                    loading="lazy"
+                    className="w-full h-full object-cover cursor-pointer hover:scale-110 transition-transform duration-500"
+                    onClick={() => setSelectedImage('/images/waffles.jpg')}
+                  />
+                </div>
+              </div>
+              <div className="flex items-center gap-3 mb-3">
+                <div className="bg-rose-50 p-2 rounded-lg text-rose-600">
+                  <Heart className="w-5 h-5" />
+                </div>
+                <h4 className="font-bold text-slate-900 text-lg">Furry Friends</h4>
+              </div>
+              <p className="text-slate-600 leading-relaxed">
+                Back home in Washington, I have two dogs: <span className="font-semibold text-slate-800">Cookie</span>, a Chihuahua, and <span className="font-semibold text-slate-800">Waffles</span>, a Blue Heeler mix.
               </p>
             </div>
-            
-            <div className="flex flex-col lg:flex-row gap-8 max-w-6xl mx-auto lg:items-stretch">
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 flex-1">
-                <HobbyCard 
-                  icon={<Bot className="w-6 h-6 text-indigo-600" />} 
-                  title="Local LLMs & AI" 
-                  desc="Utilizing LM Studio to host and explore the capabilities of various open-source models." 
-                  color="bg-indigo-50" 
-                />
-                <HobbyCard 
-                  icon={<Box className="w-6 h-6 text-sky-600" />} 
-                  title="3D Printing" 
-                  desc="Designing and printing custom functional parts and rapid prototypes." 
-                  color="bg-sky-50" 
-                />
-                <HobbyCard 
-                  icon={<Dumbbell className="w-6 h-6 text-emerald-600" />} 
-                  title="Fitness" 
-                  desc="An avid gym-goer. I find that consistent physical discipline is essential for a balanced life." 
-                  color="bg-emerald-50" 
-                />
-                <HobbyCard 
-                  icon={<Activity className="w-6 h-6 text-amber-600" />} 
-                  title="Pickleball" 
-                  desc="Applying high-speed strategy and reflexes on the court with friends." 
-                  color="bg-amber-50" 
-                />
-                <HobbyCard 
-                  icon={<Cpu className="w-6 h-6 text-violet-600" />} 
-                  title="Hardware" 
-                  desc="Endlessly curious about computer hardware and seeing how components synergize." 
-                  color="bg-violet-50" 
-                />
-                <HobbyCard 
-                  icon={<Car className="w-6 h-6 text-rose-600" />} 
-                  title="Automotive" 
-                  desc="Passionate about engineering and performance. I love the raw connection of a manual gearbox, even if my left leg regrets it in heavy traffic." 
-                  color="bg-rose-50" 
+
+            <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm flex flex-col">
+              <div className="h-56 rounded-xl overflow-hidden border border-slate-100 mb-6">
+                <img 
+                  src="/images/car.jpg" 
+                  alt="Ford Focus ST" 
+                  loading="lazy"
+                  className="w-full h-full object-cover cursor-pointer hover:scale-110 transition-transform duration-500"
+                  onClick={() => setSelectedImage('/images/car.jpg')}
                 />
               </div>
-
-              <div className="lg:w-80 w-full flex-shrink-0 flex flex-col gap-6">
-                <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm flex flex-col flex-1">
-                  <div className="flex items-center gap-3 mb-6">
-                    <div className="bg-rose-50 p-2.5 rounded-xl text-rose-600">
-                      <Heart className="w-6 h-6" />
-                    </div>
-                    <h4 className="font-bold text-slate-900 text-lg">Furry Friends</h4>
-                  </div>
-                  
-                  <div className="grid grid-cols-2 gap-4 mb-6">
-                    <div className="aspect-square rounded-2xl overflow-hidden shadow-sm group relative border border-slate-100">
-                      <img 
-                        src="/images/cookie.jpg" 
-                        alt="Cookie the Chihuahua" 
-                        loading="lazy"
-                        className="w-full h-full object-cover cursor-pointer hover:scale-110 transition-transform duration-500"
-                        onClick={() => setSelectedImage('/images/cookie.jpg')}
-                      />
-                    </div>
-                    <div className="aspect-square rounded-2xl overflow-hidden shadow-sm group relative border border-slate-100">
-                      <img 
-                        src="/images/waffles.jpg" 
-                        alt="Waffles the Blue Heeler mix" 
-                        loading="lazy"
-                        className="w-full h-full object-cover cursor-pointer hover:scale-110 transition-transform duration-500"
-                        onClick={() => setSelectedImage('/images/waffles.jpg')}
-                      />
-                    </div>
-                  </div>
-                  
-                  <p className="text-slate-600 leading-relaxed text-sm">
-                    Back home in Washington, I have two dogs: <span className="font-semibold text-slate-800">Cookie</span>, a Chihuahua, and <span className="font-semibold text-slate-800">Waffles</span>, a Blue Heeler mix.
-                  </p>
+              <div className="flex items-center gap-3 mb-3">
+                <div className="bg-rose-50 p-2 rounded-lg text-rose-600">
+                  <Car className="w-5 h-5" />
                 </div>
-
-                <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm flex flex-col flex-1">
-                  <div className="flex items-center gap-3 mb-6">
-                    <div className="bg-rose-50 p-2.5 rounded-xl text-rose-600">
-                      <Car className="w-6 h-6" />
-                    </div>
-                    <h4 className="font-bold text-slate-900 text-lg">Performance Daily</h4>
-                  </div>
-                  
-                  <div className="aspect-video rounded-2xl overflow-hidden shadow-sm group relative border border-slate-100 mb-6 flex-1">
-                    <img 
-                      src="/images/car.jpg" 
-                      alt="Ford Focus ST" 
-                      loading="lazy"
-                      className="w-full h-full object-cover cursor-pointer hover:scale-110 transition-transform duration-500"
-                      onClick={() => setSelectedImage('/images/car.jpg')}
-                    />
-                  </div>
-                  
-                  <p className="text-slate-600 leading-relaxed text-sm">
-                    I'm a firm believer that your daily driver should have character. My <span className="font-semibold text-slate-800">Ford Focus ST</span> is the perfect blend of utility and boost—though rowing through gears in stop-and-go traffic is definitely a test of patience.
-                  </p>
-                </div>
+                <h4 className="font-bold text-slate-900 text-lg">Performance Daily</h4>
               </div>
+              <p className="text-slate-600 leading-relaxed">
+                I'm a firm believer that your daily driver should have character. My <span className="font-semibold text-slate-800">Ford Focus ST</span> is the perfect blend of utility and boost—though rowing through gears in stop-and-go traffic is definitely a test of patience.
+              </p>
             </div>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <HobbyCard 
+              icon={<Bot className="w-5 h-5 text-indigo-600" />} 
+              title="Local LLMs & AI" 
+              desc="Utilizing LM Studio to host and explore the capabilities of various open-source models." 
+              color="bg-indigo-50" 
+            />
+            <HobbyCard 
+              icon={<Box className="w-5 h-5 text-sky-600" />} 
+              title="3D Printing" 
+              desc="Designing and printing custom functional parts and rapid prototypes." 
+              color="bg-sky-50" 
+            />
+            <HobbyCard 
+              icon={<Dumbbell className="w-5 h-5 text-emerald-600" />} 
+              title="Fitness" 
+              desc="An avid gym-goer. I find that consistent physical discipline is essential for a balanced life." 
+              color="bg-emerald-50" 
+            />
+            <HobbyCard 
+              icon={<Activity className="w-5 h-5 text-amber-600" />} 
+              title="Pickleball" 
+              desc="Applying high-speed strategy and reflexes on the court with friends." 
+              color="bg-amber-50" 
+            />
+            <HobbyCard 
+              icon={<Cpu className="w-5 h-5 text-violet-600" />} 
+              title="Hardware" 
+              desc="Endlessly curious about computer hardware and seeing how components synergize." 
+              color="bg-violet-50" 
+            />
+            <HobbyCard 
+              icon={<Car className="w-5 h-5 text-rose-600" />} 
+              title="Automotive" 
+              desc="Passionate about engineering and performance. I love the raw connection of a manual gearbox, even if my left leg regrets it in heavy traffic." 
+              color="bg-rose-50" 
+            />
           </div>
         </div>
       </section>
@@ -429,8 +453,77 @@ export default function Portfolio() {
             </div>
           </div>
 
+          {/* Garage Log Featured Project (live demo) */}
+          <div className="bg-white rounded-3xl p-8 md:p-12 border border-slate-200 shadow-sm hover:shadow-xl transition-shadow group mb-12 overflow-hidden">
+            <div className="grid lg:grid-cols-2 gap-10 mb-10">
+              <div className="space-y-6">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-50 text-amber-700 text-xs font-bold uppercase tracking-wider">
+                  <Car className="w-4 h-4" /> Live Demo
+                </div>
+                <h3 className="text-3xl md:text-4xl font-bold text-slate-900 group-hover:text-amber-600 transition-colors">Garage Log</h3>
+                <p className="text-lg text-slate-600 leading-relaxed">
+                  A Windows app for keeping up with maintenance on any vehicle, with a companion mobile app for iPhone and Android. Track services, fuel and costs, and see at a glance what's due by mileage or by date. The window below is the real desktop app running in your browser with sample data. Click around.
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  <span className="text-xs font-semibold bg-slate-100 text-slate-600 px-3 py-1 rounded-full">JavaScript</span>
+                  <span className="text-xs font-semibold bg-slate-100 text-slate-600 px-3 py-1 rounded-full">Electron</span>
+                  <span className="text-xs font-semibold bg-slate-100 text-slate-600 px-3 py-1 rounded-full">three.js</span>
+                  <span className="text-xs font-semibold bg-slate-100 text-slate-600 px-3 py-1 rounded-full">pdf.js</span>
+                  <span className="text-xs font-semibold bg-slate-100 text-slate-600 px-3 py-1 rounded-full">PWA</span>
+                  <span className="text-xs font-semibold bg-slate-100 text-slate-600 px-3 py-1 rounded-full">NHTSA API</span>
+                </div>
+                <div className="flex flex-wrap gap-3">
+                  <a href="/garage-demo/index.html" target="_blank" rel="noreferrer" className="flex items-center text-sm font-medium text-amber-700 bg-amber-50 px-4 py-2 rounded-lg hover:bg-amber-100 transition-colors">
+                    <ExternalLink className="w-4 h-4 mr-2" /> Open full screen
+                  </a>
+                  <a href="https://weeef.github.io/garage/" target="_blank" rel="noreferrer" className="flex items-center text-sm font-medium text-slate-700 bg-slate-100 px-4 py-2 rounded-lg hover:bg-slate-200 transition-colors">
+                    <Smartphone className="w-4 h-4 mr-2" /> Mobile app
+                  </a>
+                  <a href="https://github.com/weeef/garage" target="_blank" rel="noreferrer" className="flex items-center text-sm font-medium text-slate-700 bg-slate-100 px-4 py-2 rounded-lg hover:bg-slate-200 transition-colors">
+                    <Github className="w-4 h-4 mr-2" /> Source
+                  </a>
+                </div>
+              </div>
+              <div className="space-y-5 lg:pt-14">
+                <div className="flex items-start gap-3">
+                  <div className="mt-1 bg-sky-50 p-1 rounded-md">
+                    <Smartphone className="w-4 h-4 text-sky-600" />
+                  </div>
+                  <p className="text-slate-600 text-base"><span className="font-semibold text-slate-900">A mobile app to go with it.</span> Log an oil change or a fill-up from your phone in the parking lot, and it shows up on your PC. The mobile app has the same features, installs from the browser on iPhone or Android with no app store, and works offline.</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="mt-1 bg-amber-50 p-1 rounded-md">
+                    <Box className="w-4 h-4 text-amber-600" />
+                  </div>
+                  <p className="text-slate-600 text-base">A <span className="font-semibold text-slate-900">3D model of your car</span> : a real model of your exact car from Sketchfab, or one generated to its real dimensions from the VIN, painted your color and carrying your state's license plate. Drag it to spin.</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="mt-1 bg-indigo-50 p-1 rounded-md">
+                    <FileText className="w-4 h-4 text-indigo-600" />
+                  </div>
+                  <p className="text-slate-600 text-base"><span className="font-semibold text-slate-900">Imports shop invoices</span> from PDFs, emails and CARFAX history, and maps each line item onto your maintenance schedule.</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="mt-1 bg-emerald-50 p-1 rounded-md">
+                    <ShieldCheck className="w-4 h-4 text-emerald-600" />
+                  </div>
+                  <p className="text-slate-600 text-base"><span className="font-semibold text-slate-900">Local-first:</span> your data stays on your own devices. The desktop and mobile apps sync through a private GitHub gist, and edits made on both while apart are merged, not lost.</p>
+                </div>
+              </div>
+            </div>
+            <div className="rounded-xl overflow-hidden shadow-2xl border border-slate-800 bg-slate-900">
+              <div className="flex items-center gap-2 px-4 py-2.5 bg-slate-800">
+                <span className="w-3 h-3 rounded-full bg-slate-600" />
+                <span className="w-3 h-3 rounded-full bg-slate-600" />
+                <span className="w-3 h-3 rounded-full bg-slate-600" />
+                <span className="ml-3 text-xs font-medium text-slate-400">Garage Log</span>
+              </div>
+              <ScaledFrame src="/garage-demo/index.html" title="Garage Log live demo" width={1180} height={760} />
+            </div>
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            
+
             <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm hover:shadow-xl transition-shadow group flex flex-col">
               <div className="flex justify-between items-start mb-6">
                 <div className="bg-indigo-50 p-3 rounded-xl text-indigo-600">
@@ -661,7 +754,7 @@ export default function Portfolio() {
 
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
               <a 
-                href="00001.jordan.bastian.resume.pdf" 
+                href="/jordan-bastian-resume.pdf" 
                 download="Jordan_Bastian_Resume.pdf"
                 className="inline-flex items-center justify-center bg-indigo-600 text-white px-8 py-4 rounded-xl font-semibold hover:bg-indigo-500 transition-all shadow-lg shadow-indigo-900/20 w-full sm:w-auto text-center"
               >
@@ -821,12 +914,14 @@ export default function Portfolio() {
 // Hobby Card Component
 function HobbyCard({ icon, title, desc, color }) {
   return (
-    <div className="bg-white rounded-2xl p-6 text-center border border-slate-200 shadow-sm hover:shadow-md hover:border-indigo-200 transition-all">
-      <div className={`${color} w-12 h-12 mx-auto rounded-full flex items-center justify-center mb-4`}>
-        {icon}
+    <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:shadow-md hover:border-indigo-200 transition-all">
+      <div className="flex items-center gap-3 mb-3">
+        <div className={`${color} w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0`}>
+          {icon}
+        </div>
+        <h4 className="font-bold text-slate-800">{title}</h4>
       </div>
-      <h4 className="font-bold text-slate-800 mb-2">{title}</h4>
-      <p className="text-sm text-slate-500">{desc}</p>
+      <p className="text-sm text-slate-500 leading-relaxed">{desc}</p>
     </div>
   );
 }
