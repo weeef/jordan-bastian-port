@@ -1,6 +1,6 @@
 # Jordan Bastian - Portfolio
 
-Aspiring Technical Product Manager & Engineering Manager.
+Product and program work: turning what users need into features.
 
 My personal site: background, work history, and projects.
 

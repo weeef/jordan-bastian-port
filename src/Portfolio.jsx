@@ -105,7 +105,7 @@ export default function Portfolio() {
               Hi, I'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-violet-600">Jordan</span>.
             </h1>
             <p className="text-xl md:text-2xl text-slate-600 font-light max-w-2xl leading-relaxed">
-              I studied computer science and psychology, and I like building software that makes sense to the people using it.
+              I studied computer science and psychology. What I like most is listening to the people who use a product, figuring out what they actually need, and turning that into features that get built.
             </p>
             <div className="flex flex-wrap gap-4 pt-4">
               <a 
@@ -163,7 +163,7 @@ export default function Portfolio() {
         <div className="max-w-4xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-slate-900 mb-4">The Journey So Far</h2>
-            <p className="text-slate-600 max-w-2xl mx-auto">How I got from a Nintendo DS to managing programs and building my own apps.</p>
+            <p className="text-slate-600 max-w-2xl mx-auto">How I got from a Nintendo DS to working on the people side of technology.</p>
           </div>
 
           {/* Master Timeline Container */}
@@ -258,7 +258,7 @@ export default function Portfolio() {
                   {
                     year: "April 2025",
                     title: "Seattle Alumni Connection & Tech Hub Tour",
-                    desc: "Went to Seattle for an alumni event and toured the Meta, Microsoft, and Amazon offices. Seeing how those teams work made something clear to me: I didn't just want to write code. I wanted to be the person in the middle, the product manager who figures out what to build and keeps everyone building it on the same page.",
+                    desc: "Went to Seattle for an alumni event and toured the Meta, Microsoft, and Amazon offices. Seeing how those teams work made something clear to me: I didn't want to spend my career writing code. I wanted to be the person in the middle: hearing what users need, deciding what gets built, and keeping the team building it on the same page.",
                     images: ['/images/mcsf spring.jpg'],
                     onImageClick: setSelectedImage
                   },
@@ -738,7 +738,7 @@ export default function Portfolio() {
           <div className="space-y-8">
             <h2 className="text-4xl font-bold">Let's Talk.</h2>
             <p className="text-slate-400 max-w-xl mx-auto lg:mx-0 text-lg">
-              I'm looking for product and program roles where I can use both my technical background and my psychology degree. If that sounds like a fit, reach out.
+              I'm looking for work where I can listen to users, turn what they need into features, and help the team that builds them. That could be product, program management, or something in between. If that sounds like a fit, reach out.
             </p>
 
             <div className="space-y-4">
