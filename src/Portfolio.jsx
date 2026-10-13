@@ -105,7 +105,7 @@ export default function Portfolio() {
               Hi, I'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-violet-600">Jordan</span>.
             </h1>
             <p className="text-xl md:text-2xl text-slate-600 font-light max-w-2xl leading-relaxed">
-              Bridging the gap between complex software architecture and human psychology to build intuitive, impactful products.
+              I studied computer science and psychology, and I like building software that makes sense to the people using it.
             </p>
             <div className="flex flex-wrap gap-4 pt-4">
               <a 
@@ -163,7 +163,7 @@ export default function Portfolio() {
         <div className="max-w-4xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-slate-900 mb-4">The Journey So Far</h2>
-            <p className="text-slate-600 max-w-2xl mx-auto">From early curiosity to building comprehensive software solutions. I thrive at the intersection of technical architecture and business strategy.</p>
+            <p className="text-slate-600 max-w-2xl mx-auto">How I got from a Nintendo DS to managing programs and building my own apps.</p>
           </div>
 
           {/* Master Timeline Container */}
@@ -176,7 +176,7 @@ export default function Portfolio() {
               <TimelineItem 
                 year="May 3, 2003" 
                 title="Hello World (Literally)" 
-                desc="Born as the first child to a first-generation immigrant household—my dad is from Mexico and my mom is from the States. As a second-generation American, I like to think this early blend of cultures gave me a head start on understanding different perspectives (and gave me a great sense of humor)."
+                desc="I was my parents' first kid. My dad is from Mexico and my mom is from the States, so I grew up with a foot in both cultures. I like to think that gave me a head start on seeing things from other people's point of view (and a pretty good sense of humor)."
                 icon={<Coffee className="w-5 h-5" />}
                 images={[{ src: '/images/kid.jpg', position: 'center 20%' }]}
                 onImageClick={setSelectedImage}
@@ -185,7 +185,7 @@ export default function Portfolio() {
               <TimelineItem 
                 year="2006" 
                 title="The Spark" 
-                desc="Interest in computers began early at age 3. Receiving a Nintendo DS Lite for my 3rd birthday, along with playing video games and messing around with early PCs, ignited a lifelong passion for interactive systems."
+                desc="I got a Nintendo DS Lite for my 3rd birthday, and that was pretty much it. Between video games and messing around on old PCs, I've been hooked on computers ever since."
                 icon={<Gamepad2 className="w-5 h-5" />}
                 onImageClick={setSelectedImage}
               />
@@ -193,9 +193,9 @@ export default function Portfolio() {
               <TimelineItem 
                 year="2008 - 2017" 
                 title="Foundations" 
-                desc={`From Kindergarten through 8th grade, I was part of a dual language program where instruction was split between English and Spanish. In middle school, our curriculum was uniquely designed so that some semesters we would learn subjects like math in Spanish and history in English, and then swap. 
+                desc={`From kindergarten through 8th grade I was in a dual language program, with classes split between English and Spanish. In middle school we'd take a subject like math in Spanish and history in English for a semester, then switch.
 
-                This immersive academic environment, combined with growing up in a dual language household, further honed my ability to fluently speak, write, and understand Spanish—giving me a deep linguistic and cultural foundation that I carry into my professional work today.`}
+                Between that and speaking both languages at home, I'm fluent in Spanish (reading, writing and speaking), and it still comes in handy at work.`}
                 icon={<BookOpen className="w-5 h-5" />}
                 onImageClick={setSelectedImage}
               />
@@ -204,19 +204,19 @@ export default function Portfolio() {
               <TimelineItem 
                 year="2017 - 2021" 
                 title="Kamiakin High School & Game Dev" 
-                desc="Took every computer class available (Hardware Engineering, Networking, etc.). At the exact same time, I was attending summer programs (WSU & Tri-Tech) learning to architect and develop games in Unity. I was living and breathing code before I could drive."
+                desc="I took every computer class my school offered (hardware engineering, networking, and so on). In the summers I went to programs at WSU and Tri-Tech to learn how to make games in Unity. I was writing code before I could drive."
                 icon={<Gamepad2 className="w-5 h-5" />}
                 onImageClick={setSelectedImage}
                 subs={[
                   {
                     year: "May 2018 - Present",
                     title: "JB's Landscaping and Lawn Care LLC",
-                    desc: "My parents' business! I started out doing the literal heavy lifting as a Crew Member—mowing lawns and manual labor. Eventually, I earned my way into the office as a Technical Project Assistant. Witnessing firsthand what it takes to run a business—from hiring crews to managing tricky client interactions—taught me that technology is only as good as the business it supports."
+                    desc: "My parents' business. I started on a crew mowing lawns and doing a lot of manual labor, and eventually moved into the office as a Technical Project Assistant. Seeing everything that goes into running a business, from hiring crews to dealing with difficult clients, taught me that technology only matters if it actually helps the business."
                   },
                   {
                     year: "Feb 2019",
                     title: "First PC Build",
-                    desc: "Sourced parts and built my first custom PC featuring a Ryzen 3 2200g and 16GB of RAM. This hands-on experience truly cemented my love for tech, hardware, and seeing how individual components synergize to create powerful systems."
+                    desc: "Picked out the parts and built my first PC: a Ryzen 3 2200G with 16GB of RAM. Putting it together myself is what really got me into hardware."
                   }
                 ]}
               />
@@ -225,9 +225,9 @@ export default function Portfolio() {
               <TimelineItem 
                 year="Aug 2021 - May 22, 2025" 
                 title="Undergraduate Studies at St. Olaf" 
-                desc={`Graduated with a dual degree in Computer Science and Psychology! As a first-generation college student, this achievement represents a significant milestone in my family's journey. This combination allows me to understand both the technical 'how' and the human 'why' behind product development. I spent countless nights staying up way too late, fueled by sheer willpower and caffeine, trying to finish complex coding projects. It was exhausting, but it built the resilience and deep technical empathy I bring to my teams today.
+                desc={`I graduated with a dual degree in Computer Science and Psychology, and I'm the first in my family to finish college, which means a lot to all of us. Studying both taught me how software works and why people use it the way they do. I also stayed up way too late, way too often, running on caffeine to finish coding projects. It was exhausting, but it taught me how to keep going on hard problems.
 
-                During my time at St. Olaf, I was an active member of the Algorithm's Club and the Linux Ladies Club—tight-knit CS communities where we gathered to build projects, solve problems, and support each other's technical growth.`}
+                At St. Olaf I was in the Algorithms Club and Linux Ladies, two small CS groups where we built projects, worked through problems together, and helped each other get better.`}
                 icon={<BrainCircuit className="w-5 h-5" />}
                 images={['/images/petal programming.jpg']}
                 onImageClick={setSelectedImage}
@@ -239,7 +239,7 @@ export default function Portfolio() {
                     <div className="text-sm">
                       <span className="font-bold text-emerald-900 block mb-0.5">2nd Place: Petal Programming Competition</span>
                       <p className="text-emerald-700 leading-relaxed">
-                        I took home 2nd place in a "Petal Programming" competition during a school-hosted Linux Ladies event! I built a digital flower entirely out of HTML and CSS, and walked away with a real succulent as my prize. It was a fun way to blend creative frontend engineering with rapid prototyping.
+                        I took 2nd place in a "Petal Programming" competition at a Linux Ladies event. I built a flower out of nothing but HTML and CSS, and the prize was a real succulent.
                       </p>
                     </div>
                   </div>
@@ -253,19 +253,19 @@ export default function Portfolio() {
                   {
                     year: "Aug 2024 - May 2025",
                     title: "IT Support & Digital Media Intern",
-                    desc: "Worked at the St. Olaf library providing direct technical support to students and faculty, resolving 50+ complex technical issues and actively tracking software bugs for the central IT department."
+                    desc: "Did tech support for students and faculty at the St. Olaf library. I resolved 50+ issues and logged software bugs for the central IT department."
                   },
                   {
                     year: "April 2025",
                     title: "Seattle Alumni Connection & Tech Hub Tour",
-                    desc: "Visited Seattle for an alumni connections event and toured Meta, Microsoft, and Amazon offices. Seeing these massive tech ecosystems in action cemented my realization: I didn't want to just be a software developer writing production code. I wanted to be the middleman—the Product Manager orchestrating the vision, the teams, and the execution.",
+                    desc: "Went to Seattle for an alumni event and toured the Meta, Microsoft, and Amazon offices. Seeing how those teams work made something clear to me: I didn't just want to write code. I wanted to be the person in the middle, the product manager who figures out what to build and keeps everyone building it on the same page.",
                     images: ['/images/mcsf spring.jpg'],
                     onImageClick: setSelectedImage
                   },
                   {
                     year: "May 22, 2025",
                     title: "Graduation: St. Olaf College",
-                    desc: "Officially crossed the stage with my dual degree in Computer Science and Psychology! All the challenging projects, deep-dive research, and late-night coding sessions culminated here, equipping me with the perfect foundation for technical leadership.",
+                    desc: "Walked across the stage with my dual degree in Computer Science and Psychology. Four years of hard projects, research, and late nights, done.",
                     images: [{ src: '/images/grad.jpg', position: 'center 15%' }]
                   }
                 ]}
@@ -290,7 +290,7 @@ export default function Portfolio() {
           <div className="text-center mb-12">
             <h3 className="text-2xl font-bold text-slate-900 mb-4">Beyond the Screen</h3>
             <p className="text-slate-600 max-w-2xl mx-auto">
-              I believe the best leaders and product managers are well-rounded humans. Here are a few things that keep me active and grounded.
+              What I'm up to when I'm not working.
             </p>
           </div>
 
@@ -344,7 +344,7 @@ export default function Portfolio() {
                 <h4 className="font-bold text-slate-900 text-lg">Performance Daily</h4>
               </div>
               <p className="text-slate-600 leading-relaxed">
-                I'm a firm believer that your daily driver should have character. My <span className="font-semibold text-slate-800">Ford Focus ST</span> is the perfect blend of utility and boost—though rowing through gears in stop-and-go traffic is definitely a test of patience.
+                I think a daily driver should be fun to drive. My <span className="font-semibold text-slate-800">Ford Focus ST</span> is practical enough for every day and still has a turbo, though shifting through stop-and-go traffic gets old fast.
               </p>
             </div>
           </div>
@@ -353,37 +353,37 @@ export default function Portfolio() {
             <HobbyCard 
               icon={<Bot className="w-5 h-5 text-indigo-600" />} 
               title="Local LLMs & AI" 
-              desc="Utilizing LM Studio to host and explore the capabilities of various open-source models." 
+              desc="Running open-source models on my own machine with LM Studio to see what they can do." 
               color="bg-indigo-50" 
             />
             <HobbyCard 
               icon={<Box className="w-5 h-5 text-sky-600" />} 
               title="3D Printing" 
-              desc="Designing and printing custom functional parts and rapid prototypes." 
+              desc="Designing and printing parts I actually use, plus quick prototypes." 
               color="bg-sky-50" 
             />
             <HobbyCard 
               icon={<Dumbbell className="w-5 h-5 text-emerald-600" />} 
               title="Fitness" 
-              desc="An avid gym-goer. I find that consistent physical discipline is essential for a balanced life." 
+              desc="I'm a regular at the gym. Sticking to a routine there helps keep the rest of my life balanced." 
               color="bg-emerald-50" 
             />
             <HobbyCard 
               icon={<Activity className="w-5 h-5 text-amber-600" />} 
               title="Pickleball" 
-              desc="Applying high-speed strategy and reflexes on the court with friends." 
+              desc="Playing with friends whenever we can get a court." 
               color="bg-amber-50" 
             />
             <HobbyCard 
               icon={<Cpu className="w-5 h-5 text-violet-600" />} 
               title="Hardware" 
-              desc="Endlessly curious about computer hardware and seeing how components synergize." 
+              desc="Always curious about computer hardware and how all the parts fit together." 
               color="bg-violet-50" 
             />
             <HobbyCard 
               icon={<Car className="w-5 h-5 text-rose-600" />} 
               title="Automotive" 
-              desc="Passionate about engineering and performance. I love the raw connection of a manual gearbox, even if my left leg regrets it in heavy traffic." 
+              desc="I'm into how cars are engineered and what makes them fast. I love driving stick, even if my left leg doesn't in heavy traffic." 
               color="bg-rose-50" 
             />
           </div>
@@ -396,7 +396,7 @@ export default function Portfolio() {
           <div className="mb-16 md:flex md:items-end md:justify-between">
             <div className="max-w-2xl">
               <h2 className="text-3xl font-bold text-slate-900 mb-4">Featured Work & Research</h2>
-              <p className="text-slate-600">A showcase of software engineering, machine learning, data processing, and ethical research. Demonstrating my capacity to lead projects across diverse technical domains.</p>
+              <p className="text-slate-600">Things I've built and researched, from apps and games to machine learning and data analysis.</p>
             </div>
           </div>
 
@@ -409,20 +409,20 @@ export default function Portfolio() {
                 </div>
                 <h3 className="text-3xl md:text-4xl font-bold text-slate-900 group-hover:text-indigo-600 transition-colors">OptiPep</h3>
                 <p className="text-lg text-slate-600 leading-relaxed">
-                  The ultimate companion for personal health management. OptiPep provides a centralized hub to track medications, injections, peptides, and supplements, empowering users to take control of their wellness journey.
+                  A mobile app for keeping track of your health in one place: medications, injections, peptides, and supplements.
                 </p>
                 <div className="space-y-4">
                   <div className="flex items-start gap-3">
                     <div className="mt-1 bg-emerald-50 p-1 rounded-md">
                       <ShieldCheck className="w-4 h-4 text-emerald-600" />
                     </div>
-                    <p className="text-slate-600 text-base">Integrates seamlessly with <span className="font-semibold text-slate-900">Google Health</span> and <span className="font-semibold text-slate-900">Apple Health</span> for a unified view of your vitals.</p>
+                    <p className="text-slate-600 text-base">Connects to <span className="font-semibold text-slate-900">Google Health</span> and <span className="font-semibold text-slate-900">Apple Health</span> so your vitals show up next to everything else.</p>
                   </div>
                   <div className="flex items-start gap-3">
                     <div className="mt-1 bg-violet-50 p-1 rounded-md">
                       <BrainCircuit className="w-4 h-4 text-violet-600" />
                     </div>
-                    <p className="text-slate-600 text-base"><span className="font-semibold text-slate-900">AI-Powered Assistant</span> designed to help optimize your medication and supplement stacks with personalized insights.</p>
+                    <p className="text-slate-600 text-base">An <span className="font-semibold text-slate-900">AI assistant</span> that looks at your medication and supplement stack and gives suggestions based on your own data.</p>
                   </div>
                 </div>
                 <div className="flex flex-wrap gap-2 pt-4">
@@ -495,7 +495,7 @@ export default function Portfolio() {
                   <div className="mt-1 bg-amber-50 p-1 rounded-md">
                     <Box className="w-4 h-4 text-amber-600" />
                   </div>
-                  <p className="text-slate-600 text-base">A <span className="font-semibold text-slate-900">3D model of your car</span> : a real model of your exact car from Sketchfab, or one generated to its real dimensions from the VIN, painted your color and carrying your state's license plate. Drag it to spin.</p>
+                  <p className="text-slate-600 text-base">A <span className="font-semibold text-slate-900">3D model of your car</span>: either a real model of your exact car from Sketchfab, or one generated to its real dimensions from the VIN, painted your color and carrying your state's license plate. Drag it to spin.</p>
                 </div>
                 <div className="flex items-start gap-3">
                   <div className="mt-1 bg-indigo-50 p-1 rounded-md">
@@ -535,7 +535,7 @@ export default function Portfolio() {
               </div>
               <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-indigo-600 transition-colors">AlphaPoker</h3>
               <p className="text-slate-600 mb-6 flex-1">
-                A Machine Learning model built in Google Colab using Python with a research partner to correctly identify poker hands from a crafted dataset. Led the development lifecycle, defining evaluation goals and managing end-to-end testing across decision trees and neural networks resulting in 99.8% accuracy.
+                A machine learning model that identifies poker hands, built in Python on Google Colab with a research partner. I set the evaluation goals and ran testing across decision trees and neural networks, and our best model hit 99.8% accuracy.
               </p>
               <div className="flex gap-3 mt-auto">
                 <button 
@@ -558,7 +558,7 @@ export default function Portfolio() {
               </div>
               <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-emerald-600 transition-colors">Project Melda</h3>
               <p className="text-slate-600 mb-6 flex-1">
-                A game development project developed in C++ featuring custom assets, documentation, and logic. A custom Python script was also created to seamlessly deploy and run the game on university servers. Showcases my ongoing passion for interactive media and software architecture roots established since 2017.
+                A C++ game with custom art, documentation, and game logic, plus a Python script that deploys and runs it on the university servers. I've been making games since high school and still love it.
               </p>
               
               <div className="mt-auto bg-slate-50 rounded-xl p-4 flex items-center gap-4 border border-slate-100">
@@ -581,7 +581,7 @@ export default function Portfolio() {
               </div>
               <div className="p-6 flex-1 flex flex-col">
                 <p className="text-slate-600 text-sm mb-4">
-                  Data processing, cleaning, and presentation project analyzing the variation in tail lengths across 31 species of the Canidae family. We categorized lengths and analyzed evolutionary traits. 
+                  We cleaned and analyzed data on tail length across 31 species in the dog family (Canidae), grouped them by length, and looked at the evolutionary traits behind it.
                   <br/><br/>
                   <em>Fun Fact:</em> The longest dog tail is 30.2 inches (Irish Wolfhound).
                 </p>
@@ -602,7 +602,7 @@ export default function Portfolio() {
               </div>
               <div className="p-6 flex-1 flex flex-col">
                 <p className="text-slate-600 text-sm mb-4">
-                  (Fall 2023) Explored the socio-technical ecosystem of AVs. Conducted extensive literature reviews to discover the best ethical frameworks for software development. Evaluated how to foster trust among drivers and pedestrians by analyzing ethical, technological, and societal factors shaping public acceptance.
+                  (Fall 2023) A research project on why people do or don't trust self-driving cars. I read a lot of research on ethical frameworks for building this kind of software, and looked at the ethical, technical, and social factors that decide whether drivers and pedestrians accept them.
                 </p>
                 <div className="mt-auto flex gap-2">
                   <span className="text-xs font-semibold bg-slate-100 text-slate-600 px-2 py-1 rounded">Ethics in Tech</span>
@@ -620,7 +620,7 @@ export default function Portfolio() {
         <div className="max-w-6xl mx-auto">
           <div className="mb-16">
             <h2 className="text-3xl font-bold text-slate-900 mb-4">Certifications & Professional Development</h2>
-            <p className="text-slate-600">Continuing education and specialized training in project management, operational excellence, and technical leadership.</p>
+            <p className="text-slate-600">Courses I've completed in project management and process improvement.</p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -638,15 +638,15 @@ export default function Portfolio() {
               <ul className="space-y-3 mb-8 flex-1">
                 <li className="text-sm text-slate-600 flex gap-2">
                   <ChevronRight className="w-4 h-4 text-indigo-500 flex-shrink-0 mt-0.5" />
-                  Foundational understanding of the DMAIC methodology (Define, Measure, Analyze, Improve, Control).
+                  The DMAIC method: Define, Measure, Analyze, Improve, Control.
                 </li>
                 <li className="text-sm text-slate-600 flex gap-2">
                   <ChevronRight className="w-4 h-4 text-indigo-500 flex-shrink-0 mt-0.5" />
-                  Core principles of Lean and Six Sigma to reduce waste and variation in business processes.
+                  The basics of Lean and Six Sigma for cutting waste and variation out of a process.
                 </li>
                 <li className="text-sm text-slate-600 flex gap-2">
                   <ChevronRight className="w-4 h-4 text-indigo-500 flex-shrink-0 mt-0.5" />
-                  Techniques for identifying process improvements and enhancing organizational efficiency.
+                  How to spot where a process can be improved.
                 </li>
               </ul>
               <a 
@@ -673,15 +673,15 @@ export default function Portfolio() {
               <ul className="space-y-3 mb-8 flex-1">
                 <li className="text-sm text-slate-600 flex gap-2">
                   <ChevronRight className="w-4 h-4 text-indigo-500 flex-shrink-0 mt-0.5" />
-                  Mastery of the project lifecycle, from initiation and stakeholder mapping to final delivery.
+                  The full project lifecycle, from kickoff and figuring out stakeholders to final delivery.
                 </li>
                 <li className="text-sm text-slate-600 flex gap-2">
                   <ChevronRight className="w-4 h-4 text-indigo-500 flex-shrink-0 mt-0.5" />
-                  Practical application of traditional and Agile project management frameworks.
+                  Running projects with both traditional and Agile approaches.
                 </li>
                 <li className="text-sm text-slate-600 flex gap-2">
                   <ChevronRight className="w-4 h-4 text-indigo-500 flex-shrink-0 mt-0.5" />
-                  Communication strategies for effective team leadership and cross-functional collaboration.
+                  Communicating with a team and working across departments.
                 </li>
               </ul>
               <a 
@@ -708,15 +708,15 @@ export default function Portfolio() {
               <ul className="space-y-3 mb-8 flex-1">
                 <li className="text-sm text-slate-600 flex gap-2">
                   <ChevronRight className="w-4 h-4 text-indigo-500 flex-shrink-0 mt-0.5" />
-                  Comprehensive training in project initiation, documentation, and resource planning.
+                  Starting a project, documenting it, and planning resources.
                 </li>
                 <li className="text-sm text-slate-600 flex gap-2">
                   <ChevronRight className="w-4 h-4 text-indigo-500 flex-shrink-0 mt-0.5" />
-                  Risk management and mitigation techniques to ensure project stability and SLA adherence.
+                  Managing risk so projects stay on track and meet their SLAs.
                 </li>
                 <li className="text-sm text-slate-600 flex gap-2">
                   <ChevronRight className="w-4 h-4 text-indigo-500 flex-shrink-0 mt-0.5" />
-                  Utilization of data-driven tools for tracking progress and reporting to executive leadership.
+                  Tracking progress with data and reporting it to leadership.
                 </li>
               </ul>
               <a 
@@ -736,9 +736,9 @@ export default function Portfolio() {
       <footer id="contact" className="bg-slate-900 text-white py-24 px-6">
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center text-center lg:text-left">
           <div className="space-y-8">
-            <h2 className="text-4xl font-bold">Let's Build Something Great.</h2>
+            <h2 className="text-4xl font-bold">Let's Talk.</h2>
             <p className="text-slate-400 max-w-xl mx-auto lg:mx-0 text-lg">
-              I am open to exploring opportunities where I can leverage my technical foundation and psychological insights to lead teams and deliver exceptional products.
+              I'm looking for product and program roles where I can use both my technical background and my psychology degree. If that sounds like a fit, reach out.
             </p>
 
             <div className="space-y-4">

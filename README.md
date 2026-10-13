@@ -2,7 +2,7 @@
 
 Aspiring Technical Product Manager & Engineering Manager.
 
-This portfolio showcases the journey and projects of Jordan Bastian, bridging the gap between complex software architecture and human psychology.
+My personal site: background, work history, and projects.
 
 ## Tech Stack
 - **Framework:** React (Vite)
