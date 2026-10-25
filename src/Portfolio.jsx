@@ -23,7 +23,11 @@ import {
   Medal,
   ShieldCheck,
   Heart,
-  Smartphone
+  Smartphone,
+  MessageCircle,
+  Users,
+  Layers,
+  Lock
 } from 'lucide-react';
 
 const Github = ({ className }) => (
@@ -399,6 +403,9 @@ export default function Portfolio() {
               <p className="text-slate-600">Things I've built and researched, from apps and games to machine learning and data analysis.</p>
             </div>
           </div>
+
+          {/* Habit Featured Project */}
+          <HabitShowcase />
 
           {/* OptiPep Featured Project */}
           <div className="bg-white rounded-3xl p-8 md:p-12 border border-slate-200 shadow-sm hover:shadow-xl transition-shadow group mb-12 overflow-hidden">
@@ -907,6 +914,109 @@ export default function Portfolio() {
         </div>
       )}
 
+    </div>
+  );
+}
+
+// Habit: screenshots from the running prototype
+const HABIT_SHOTS = [
+  { src: '/images/habit/plaza.jpg', label: 'The Plaza', alt: 'Habit: avatars chatting by the fountain in the Plaza, with chat on the right', caption: 'The Plaza, a little New York where everyone arrives. The storefronts along the skyline are doors into communities.' },
+  { src: '/images/habit/plaza-night.jpg', label: 'Night', alt: 'Habit: the Plaza at night with the skyline lit up', caption: 'The world runs on a shared 24-minute day, and the skyline lights up at dusk.' },
+  { src: '/images/habit/board.jpg', label: 'Board', alt: 'Habit: the Plaza board with threads, votes and sort filters', caption: 'Every room has a board. Threads stay, with votes and filters for Latest, Hot and Top.' },
+  { src: '/images/habit/signup.jpg', label: 'Sign-up', alt: 'Habit: the sign-up dialog with username, password, birth year and a character creator', caption: 'Sign-up only appears when you try to talk: a username, a password and your character. No email or phone.' },
+  { src: '/images/habit/arcade.jpg', label: 'Arcade', alt: 'Habit: the Gaming room, a neon arcade with cabinets and a couch', caption: 'Gaming is a neon arcade with cabinets you can play.' },
+  { src: '/images/habit/gym.jpg', label: 'Gym', alt: 'Habit: the Gym room with treadmills, weights and a punching bag', caption: 'The Gym: punching bags, weights and leg-day talk.' },
+];
+
+function HabitShowcase() {
+  const [active, setActive] = useState(0);
+  const shot = HABIT_SHOTS[active];
+
+  return (
+    <div className="bg-white rounded-3xl p-8 md:p-12 border border-slate-200 shadow-sm hover:shadow-xl transition-shadow group mb-12 overflow-hidden">
+      <div className="grid lg:grid-cols-2 gap-10 mb-10">
+        <div className="space-y-6">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-50 text-pink-700 text-xs font-bold uppercase tracking-wider">
+            <Users className="w-4 h-4" /> Founder · Working prototype
+          </div>
+          <h3 className="text-3xl md:text-4xl font-bold text-slate-900 group-hover:text-pink-600 transition-colors">
+            Habit <span className="text-slate-400 font-medium text-2xl md:text-3xl">Walk in. Say hi.</span>
+          </h3>
+          <p className="text-lg text-slate-600 leading-relaxed">
+            A cosy virtual world where every chatroom is a real room. You can see who's inside before you go in, hang out without talking, and join the conversation when you're ready. I started it because joining a Discord server full of strangers feels like crashing a party, and I wanted to find out if a place could make that first hello easier.
+          </p>
+          <div className="flex flex-wrap gap-2">
+            {['Go', 'WebSockets', 'PostgreSQL', 'Canvas 2D', 'JavaScript', 'Argon2id'].map((t) => (
+              <span key={t} className="text-xs font-semibold bg-slate-100 text-slate-600 px-3 py-1 rounded-full">{t}</span>
+            ))}
+          </div>
+          <div className="flex flex-wrap gap-3">
+            <a href="https://github.com/weeef/Habit" target="_blank" rel="noreferrer" className="flex items-center text-sm font-medium text-pink-700 bg-pink-50 px-4 py-2 rounded-lg hover:bg-pink-100 transition-colors">
+              <Github className="w-4 h-4 mr-2" /> Source
+            </a>
+          </div>
+        </div>
+        <div className="space-y-5 lg:pt-14">
+          <div className="flex items-start gap-3">
+            <div className="mt-1 bg-pink-50 p-1 rounded-md">
+              <Users className="w-4 h-4 text-pink-600" />
+            </div>
+            <p className="text-slate-600 text-base"><span className="font-semibold text-slate-900">Designed around the first 60 seconds.</span> Guests can look around and peek through doors without an account. Sign-up only appears when you try to talk. The target I design against: from a shared link to a first message in under a minute.</p>
+          </div>
+          <div className="flex items-start gap-3">
+            <div className="mt-1 bg-violet-50 p-1 rounded-md">
+              <Layers className="w-4 h-4 text-violet-600" />
+            </div>
+            <p className="text-slate-600 text-base"><span className="font-semibold text-slate-900">A renderer written from scratch.</span> The world is an isometric voxel renderer on Canvas 2D with no framework. Characters are cached by look, direction and pose, so a crowd of about 255 people draws in roughly 7 ms.</p>
+          </div>
+          <div className="flex items-start gap-3">
+            <div className="mt-1 bg-amber-50 p-1 rounded-md">
+              <MessageCircle className="w-4 h-4 text-amber-600" />
+            </div>
+            <p className="text-slate-600 text-base"><span className="font-semibold text-slate-900">Live chat, plus boards that last.</span> Speech bubbles and a chat log for the moment, and a board in every room with votes and reply notifications. A Go server moves every avatar on its own tick over WebSockets, and Postgres keeps accounts and threads.</p>
+          </div>
+          <div className="flex items-start gap-3">
+            <div className="mt-1 bg-emerald-50 p-1 rounded-md">
+              <Lock className="w-4 h-4 text-emerald-600" />
+            </div>
+            <p className="text-slate-600 text-base"><span className="font-semibold text-slate-900">Private by default.</span> No email or phone number. Anonymous names stay the same within a room for a day but can't be linked across rooms, and teen accounts get a personal-info filter.</p>
+          </div>
+        </div>
+      </div>
+
+      <div className="grid lg:grid-cols-[minmax(0,1fr)_220px] gap-6 items-start">
+        <figure className="min-w-0">
+          <div className="rounded-xl overflow-hidden shadow-2xl border border-slate-800 bg-slate-900">
+            <div className="flex items-center gap-2 px-4 py-2.5 bg-slate-800">
+              <span className="w-3 h-3 rounded-full bg-slate-600" />
+              <span className="w-3 h-3 rounded-full bg-slate-600" />
+              <span className="w-3 h-3 rounded-full bg-slate-600" />
+              <span className="ml-3 text-xs font-medium text-slate-400">Habit · {shot.label}</span>
+            </div>
+            <img src={shot.src} alt={shot.alt} className="w-full aspect-video object-cover bg-slate-100" />
+          </div>
+          <figcaption className="mt-3 text-sm text-slate-500 min-h-[2.5rem]">{shot.caption}</figcaption>
+          <div className="mt-3 flex flex-wrap gap-2" role="group" aria-label="Habit screenshots">
+            {HABIT_SHOTS.map((s, i) => (
+              <button
+                key={s.src}
+                onClick={() => setActive(i)}
+                aria-pressed={i === active}
+                className={`w-24 sm:w-28 rounded-lg overflow-hidden border-2 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-500 ${i === active ? 'border-pink-500 shadow-md' : 'border-transparent opacity-70 hover:opacity-100'}`}
+              >
+                <img src={s.src} alt="" loading="lazy" className="w-full aspect-video object-cover" />
+                <span className="block text-[11px] font-semibold text-slate-600 bg-slate-50 py-1">{s.label}</span>
+              </button>
+            ))}
+          </div>
+        </figure>
+        <figure className="hidden lg:block">
+          <div className="rounded-[2rem] overflow-hidden border-8 border-slate-900 bg-slate-900 shadow-2xl">
+            <img src="/images/habit/phone.jpg" alt="Habit on a phone: the Plaza with a first-stops checklist and chat as a bottom sheet" loading="lazy" className="w-full" />
+          </div>
+          <figcaption className="mt-3 text-sm text-slate-500 text-center">On phones, chat becomes a bottom sheet.</figcaption>
+        </figure>
+      </div>
     </div>
   );
 }
