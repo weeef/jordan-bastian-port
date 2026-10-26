@@ -109,7 +109,7 @@ export default function Portfolio() {
               Hi, I'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-violet-600">Jordan</span>.
             </h1>
             <p className="text-xl md:text-2xl text-slate-600 font-light max-w-2xl leading-relaxed">
-              I studied computer science and psychology. What I like most is listening to the people who use a product, figuring out what they actually need, and turning that into features that get built.
+              I studied computer science and psychology. What I like most is listening to the people who use a product, figuring out what they actually need, and building the thing that gets them there.
             </p>
             <div className="flex flex-wrap gap-4 pt-4">
               <a 
@@ -167,7 +167,7 @@ export default function Portfolio() {
         <div className="max-w-4xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-slate-900 mb-4">The Journey So Far</h2>
-            <p className="text-slate-600 max-w-2xl mx-auto">How I got from a Nintendo DS to working on the people side of technology.</p>
+            <p className="text-slate-600 max-w-2xl mx-auto">How I got from a Nintendo DS to working where people and technology meet.</p>
           </div>
 
           {/* Master Timeline Container */}
@@ -262,7 +262,7 @@ export default function Portfolio() {
                   {
                     year: "April 2025",
                     title: "Seattle Alumni Connection & Tech Hub Tour",
-                    desc: "Went to Seattle for an alumni event and toured the Meta, Microsoft, and Amazon offices. Seeing how those teams work made something clear to me: I didn't want to spend my career writing code. I wanted to be the person in the middle: hearing what users need, deciding what gets built, and keeping the team building it on the same page.",
+                    desc: "Went to Seattle for an alumni event and toured the Meta, Microsoft, and Amazon offices. Seeing how those teams work made something clear to me: the part I love is where design and engineering meet. Hearing what users need, prototyping it fast, and building it with the team until it feels right.",
                     images: ['/images/mcsf spring.jpg'],
                     onImageClick: setSelectedImage
                   },
@@ -949,11 +949,6 @@ function HabitShowcase() {
             {['Go', 'WebSockets', 'PostgreSQL', 'Canvas 2D', 'JavaScript', 'Argon2id'].map((t) => (
               <span key={t} className="text-xs font-semibold bg-slate-100 text-slate-600 px-3 py-1 rounded-full">{t}</span>
             ))}
-          </div>
-          <div className="flex flex-wrap gap-3">
-            <a href="https://github.com/weeef/Habit" target="_blank" rel="noreferrer" className="flex items-center text-sm font-medium text-pink-700 bg-pink-50 px-4 py-2 rounded-lg hover:bg-pink-100 transition-colors">
-              <Github className="w-4 h-4 mr-2" /> Source
-            </a>
           </div>
         </div>
         <div className="space-y-5 lg:pt-14">
