@@ -278,7 +278,7 @@ export default function Portfolio() {
               <TimelineItem 
                 year="Nov 2025 - Present" 
                 title="Associate, Program Operations @ Element Fleet Management" 
-                desc={`I joined Element in November 2025. I'm the main point of contact for Amazon's team on the Amazon Armada program, so I lead those client conversations and work deliveries and operational issues on their fleet units through to resolution. On any given day I'm also juggling five or more operational and technical workstreams with vendors, data analysts, and engineers, and so far everything I've owned has landed on time.
+                desc={`I joined Element in November 2025. I'm one of the main points of contact for Amazon's team on the Amazon Armada program, so I lead those client conversations and work deliveries and operational issues on their fleet units through to resolution. On any given day I'm also juggling five or more operational and technical workstreams with vendors, data analysts, and engineers, and so far everything I've owned has landed on time.
 
                 I manage two of our vendors directly. I run weekly performance meetings with each, present the KPI data to stakeholders, and shift work volume between them based on how they're performing. That balancing act earned me the Accountability in Action award in August 2026. When something keeps slowing us down, I dig into the data to find out why. The SQL and Power BI dashboards I built to track those bottlenecks have helped the team get about 20% more work through.
 
