@@ -278,9 +278,11 @@ export default function Portfolio() {
               <TimelineItem 
                 year="Nov 2025 - Present" 
                 title="Associate, Program Operations @ Element Fleet Management" 
-                desc={`I joined Element in November 2025, and most days I'm juggling five or more operational and technical workstreams at once, working with vendors, data analysts, and engineers to keep them all moving. So far, everything I've owned has landed on time.
+                desc={`I joined Element in November 2025. I'm the main point of contact for Amazon's team on the Amazon Armada program, so I lead those client conversations and work deliveries and operational issues on their fleet units through to resolution. On any given day I'm also juggling five or more operational and technical workstreams with vendors, data analysts, and engineers, and so far everything I've owned has landed on time.
 
-                I manage two of our vendors directly. That means keeping a close eye on how each one is performing and shifting work between them when things change. When something keeps slowing us down, I dig into the data to find out why. The SQL and Power BI dashboards I built to track those bottlenecks have helped the team get about 20% more work through. I also supported the Armada program, and I jump in on Salesforce cases when they need a hand.`}
+                I manage two of our vendors directly. I run weekly performance meetings with each, present the KPI data to stakeholders, and shift work volume between them based on how they're performing. That balancing act earned me the Accountability in Action award in August 2026. When something keeps slowing us down, I dig into the data to find out why. The SQL and Power BI dashboards I built to track those bottlenecks have helped the team get about 20% more work through.
+
+                I also built my own automation system with Claude and Microsoft Fabric: AI agents that pull data on demand and take care of a lot of the role's manual work, like recording handoffs and touchpoints. And I jump in on Salesforce cases when they need a hand.`}
                 icon={<Briefcase className="w-5 h-5" />}
                 onImageClick={setSelectedImage}
               />
